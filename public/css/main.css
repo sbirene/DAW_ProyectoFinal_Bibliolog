@@ -1,0 +1,329 @@
+/* Colores */
+:root {
+    --blanco: #ffffff;
+    --oscuro-resaltar: #181726;
+    --oscuro: #201f32;
+    --azul: #3a497d;
+    --azul-claro: #6979a5;
+    --morado: #633f7e;
+    --gris: #8f8e98;
+}
+
+/* Comportamiento scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Tipografía */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--oscuro);
+    margin: 0;
+}
+
+/* Cabecera */
+.cabecera.dispositivos {
+    display: none;
+}
+
+.cabecera {
+    margin-top: 0;
+    background-color: var(--oscuro);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#logo img {
+    width: 190px;
+    height: auto;
+}
+
+/* Menú */
+.menu {
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu .navbar .nav-item {
+    float: left;
+}
+
+.menu .nav-item .nav-link {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+.menu .nav-item .nav-link .negrita {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.menu .nav-item .nav-link .estrechita {
+    font-weight: lighter;
+}
+
+.menu .nav-item .nav-link:hover {
+    color: var(--azul-claro);
+}
+
+.menu .activo .nav-link {
+    color: var(--gris);
+}
+
+.menu .activo .nav-link:hover {
+    color: var(--azul-claro);
+}
+
+/* Estilo para el menú responsive*/
+.menu .menu-responsive {
+    cursor: pointer;
+}
+
+/* Botón */
+.menu-responsive:before {
+    content: "\2630 \a0 Menú";
+    color: var(--blanco);
+    padding: 5px 10px;
+    border: 1px solid var(--gris);
+    border-radius: 3px;
+}
+
+.menu-responsive:focus {
+    pointer-events: none;
+}
+
+/* If :focus detected the dropdown menu is displayed by making it visible */
+.menu-responsive:focus .menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* style for the dropdown box */
+.menu-dropdown {
+    background-color: var(--oscuro-resaltar);
+    width: fit-content;
+    margin: 3px 0 0 0;
+    padding: 10px;
+    border: 1px solid var(--gris);
+    border-radius: 3px;
+    pointer-events: auto;
+    position: absolute;
+    top: 70px;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 1s;
+}
+
+/* style the links in the dropdown */
+.menu-dropdown a {
+    background: transparent;
+    border: none;
+    outline: 0;
+    display: block;
+    color: var(--blanco);
+    text-decoration: none;
+    width: fit-content;
+    padding: 5px;
+}
+
+.menu-dropdown a:hover {
+    color: var(--azul);
+}
+
+/* Estilo para móviles y tablets */
+@media only screen and (max-width: 900px) {
+
+    /* Menú */
+    .cabecera.dispositivos {
+        display: inherit;
+    }
+
+    .cabecera.ordenador {
+        display: none;
+    }
+
+    .cabecera.dispositivos #logo {
+        margin: auto;
+    }
+
+    .cabecera.dispositivos .menu-responsive {
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* Menú */
+    .cabecera.dispositivos .menu {
+        padding: 25px 0px;
+        display: inherit;
+    }
+
+    .cabecera.dispositivos #logo {
+        width: fit-content;
+        display: block;
+        margin: auto auto 15px auto;
+    }
+
+    .cabecera.dispositivos .menu-responsive {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .cabecera.dispositivos .menu-responsive .menu-dropdown {
+        top: 120px;
+    }
+}
+
+/* Contenido */
+.contenido {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    min-height: 100vh;
+}
+
+/* Pie de la página */
+.pie {
+    background-color: var(--oscuro-resaltar);
+    color: var(--blanco);
+    padding: 25px 60px;
+}
+
+.pie p {
+    margin: 0;
+}
+
+.pie .negrita {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.pie .estrechita {
+    font-weight: lighter;
+}
+
+
+/* Estilos css para el index del proyecto */
+/* Titulares */
+.titular {
+    text-align: center;
+    padding: 75px 0;
+}
+
+.titular.t1 h2 {
+    /* Fallback: Set a background color. */
+    background-color: var(--negro);
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, var(--morado), var(--azul-claro));
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.titular.t2 h2 {
+    background-color: var(--negro);
+    background-image: linear-gradient(45deg, var(--morado), var(--azul-claro));
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.titular .icono {
+    margin: 40px 15px 0 15px;
+    color: var(--morado);
+}
+
+
+/* Posibilidades */
+.posibilidades {
+    padding: 55px 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+    text-align: center;
+    background-color: var(--oscuro-resaltar);
+}
+
+.posibilidades .titulo {
+    width: 100%;
+    margin-bottom: 15px;
+    color: var(--gris);
+    font-size: 1.5em;
+}
+
+.posibilidades .titulo .negrita {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.posibilidades .titulo .estrechita {
+    font-weight: lighter;
+}
+
+.posibilidades .rectangulo {
+    width: 25%;
+    margin: 25px;
+    border: 2px solid var(--gris);
+    border-radius: 10px;
+    padding: 60px 15px;
+    /* min-height: 275px; */
+}
+
+.posibilidades .rectangulo {
+    background-color: var(--oscuro);
+}
+
+.posibilidades .rectangulo h4 {
+    color: var(--blanco);
+    font-size: 1.5em;
+}
+
+/* Estilo para tablets */
+@media only screen and (max-width: 900px) {
+    /* Titulares */
+    .titular {
+        padding: 75px 60px;
+    }
+
+    /* Posibilidades */
+    .posibilidades .rectangulo {
+        width: 55%;
+    }
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 600px) {
+    /* Posibilidades */
+    .posibilidades {
+        padding: 55px 10px;
+    }
+}
