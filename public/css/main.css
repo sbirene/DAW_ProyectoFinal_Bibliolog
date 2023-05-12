@@ -167,6 +167,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+
     /* Menú */
     .cabecera.dispositivos .menu {
         padding: 25px 0px;
@@ -187,6 +188,33 @@ body {
     .cabecera.dispositivos .menu-responsive .menu-dropdown {
         top: 120px;
     }
+}
+
+/* Menú manejo sesión */
+.menu_secundario {
+    background-color: var(--morado);
+}
+
+.menu_secundario ul {
+    margin: 0 60px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.menu_secundario li {
+    list-style: none;
+    margin: 10px 15px;
+}
+
+.menu_secundario li a {
+    font-size: 16px;
+    color: var(--blanco);
+}
+
+.menu_secundario li a:hover {
+    color: var(--gris);
+    text-decoration: none;
 }
 
 /* Contenido */
@@ -309,6 +337,7 @@ body {
 
 /* Estilo para tablets */
 @media only screen and (max-width: 900px) {
+
     /* Titulares */
     .titular {
         padding: 75px 60px;
@@ -322,6 +351,7 @@ body {
 
 /* Estilo para móviles */
 @media only screen and (max-width: 600px) {
+
     /* Posibilidades */
     .posibilidades {
         padding: 55px 10px;

@@ -19,6 +19,15 @@
 </head>
 
 <body>
+    <!-- Menú secundario (manejo sesión) -->
+    <div class="menu_secundario">
+        <ul>
+            <li><a href="">Crear cuenta</a></li>
+            <li><a href="">Iniciar Sesión</a></li>
+            <li><a href="">Cerrar sesión</a></li>
+        </ul>
+    </div>
+
     <!-- Cabecera para ordenadores -->
     <div class="cabecera ordenador">
         <div class="menu">
@@ -39,6 +48,9 @@
                 <li class="nav-item @yield('activo_libros')">
                     <a class="nav-link" href="libros.html">Libros</a>
                 </li>
+                <li class="nav-item @yield('activo_biblioteca')">
+                    <a class="nav-link" href="biblioteca.html">Mi biblioteca</a>
+                </li>
                 <li class="nav-item @yield('activo_sobre')">
                     <a class="nav-link" href="sobre-bibliolog.html">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>
                 </li>
@@ -58,6 +70,7 @@
                     <a class="nav-link" href="peliculas.html">Películas</a>
                     <a class="nav-link" href="series.html">Series</a>
                     <a class="nav-link" href="libros.html">Libros</a>
+                    <a class="nav-link" href="biblioteca.html">Mi biblioteca</a>
                     <a class="nav-link" href="noticias.html">Noticias</a>
                     <a class="nav-link" href="sobre-bibliolog.html">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>
                 </div>
