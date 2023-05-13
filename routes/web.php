@@ -11,9 +11,14 @@
 |
 */
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Ruta para el index
 Route::view("index", "index");
+// Ruta para novedades
+Route::view("novedades", "novedades");
