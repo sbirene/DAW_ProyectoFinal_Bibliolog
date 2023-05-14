@@ -207,15 +207,88 @@ body {
     margin: 10px 15px;
 }
 
-.menu_secundario li a {
+.menu_secundario li a, .menu_secundario li p {
     font-size: 16px;
     color: var(--blanco);
+}
+
+.menu_secundario li p {
+    margin: 0;
+    padding: 0;
 }
 
 .menu_secundario li a:hover {
     color: var(--gris);
     text-decoration: none;
 }
+
+/* Estilo para móviles y tablets */
+@media only screen and (max-width: 600px) {
+
+    /* Menú manejo sesión */
+    .menu_secundario ul {
+        justify-content: space-evenly;
+    }
+}
+
+/* Formulario crear cuenta */
+form.crear-cuenta {
+    padding-top: 75px;
+}
+
+form.crear-cuenta .form-label {
+    color: var(--gris);
+}
+
+form.crear-cuenta .form-control {
+    background-color: var(--oscuro-resaltar);
+    color: var(--blanco);
+    border-color: var(--gris);
+}
+
+form.crear-cuenta .form-control:focus {
+    border-color: var(--blanco);
+    box-shadow: 0 0 0 0.25rem var(--azul);
+}
+
+form.crear-cuenta .btn {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+
+form.crear-cuenta .btn:hover {
+    background-color: var(--azul);
+}
+
+/* Formulario iniciar sesión */
+form.iniciar-sesion {
+    padding-top: 75px;
+}
+
+form.iniciar-sesion .form-label {
+    color: var(--gris);
+}
+
+form.iniciar-sesion .form-control {
+    background-color: var(--oscuro-resaltar);
+    color: var(--blanco);
+    border-color: var(--gris);
+}
+
+form.iniciar-sesion .form-control:focus {
+    border-color: var(--blanco);
+    box-shadow: 0 0 0 0.25rem var(--azul);
+}
+
+form.iniciar-sesion .btn {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+
+form.iniciar-sesion .btn:hover {
+    background-color: var(--azul);
+}
+
 
 /* Contenido */
 .contenido {

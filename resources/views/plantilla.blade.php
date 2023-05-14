@@ -22,22 +22,34 @@
     <!-- Menú secundario (manejo sesión) -->
     <div class="menu_secundario">
         <ul>
-            <li><a href="">Crear cuenta</a></li>
-            <li><a href="">Iniciar Sesión</a></li>
-            <li><a href="">Cerrar sesión</a></li>
+            <!-- si no hay una sesión iniciada -->
+            @guest
+            <li><a href="register">Crear cuenta</a></li>
+            <li><a href="login">Iniciar Sesión</a></li>
+            <!-- sí hay una sesión iniciada -->
+            @else
+            <li>
+                <!-- conseguir el usuario que ha iniciado sesión -->
+                <p>Hola, {{ Auth::user()->name }}</p>
+            </li>
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Cerrar Sesión</a></li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            @endguest
         </ul>
     </div>
 
     <!-- Cabecera para ordenadores -->
     <div class="cabecera ordenador">
         <div class="menu">
-            <a href="index" id="logo"><img src="{{asset('images/logo_bibliolog_blanco.png')}}" alt="logo de la página"></a>
+            <a href="/" id="logo"><img src="{{asset('images/logo_bibliolog_blanco.png')}}" alt="logo de la página"></a>
             <ul class="navbar">
                 <li class="nav-item @yield('activo_index')">
-                    <a class="nav-link" href="index">Inicio</a>
+                    <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item @yield('activo_novedades')">
-                    <a class="nav-link" href="novedades.html">Novedades</a>
+                    <a class="nav-link" href="novedades">Novedades</a>
                 </li>
                 <li class="nav-item @yield('activo_pelis')">
                     <a class="nav-link" href="peliculas.html">Películas</a>
@@ -62,11 +74,11 @@
     <!-- Cabecera para tablets y móviles -->
     <div class="cabecera dispositivos">
         <div class="menu">
-            <a href="index.html" id="logo"><img src="{{asset('images/logo_bibliolog_blanco.png')}}" alt="logo de la página"></a>
+            <a href="/" id="logo"><img src="{{asset('images/logo_bibliolog_blanco.png')}}" alt="logo de la página"></a>
             <div tabindex="0" class="menu-responsive">
                 <div class="menu-dropdown">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                    <a class="nav-link" href="novedades.html">Novedades</a>
+                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="novedades">Novedades</a>
                     <a class="nav-link" href="peliculas.html">Películas</a>
                     <a class="nav-link" href="series.html">Series</a>
                     <a class="nav-link" href="libros.html">Libros</a>
