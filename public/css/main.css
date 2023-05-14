@@ -207,7 +207,8 @@ body {
     margin: 10px 15px;
 }
 
-.menu_secundario li a, .menu_secundario li p {
+.menu_secundario li a,
+.menu_secundario li p {
     font-size: 16px;
     color: var(--blanco);
 }
@@ -429,4 +430,46 @@ form.iniciar-sesion .btn:hover {
     .posibilidades {
         padding: 55px 10px;
     }
+}
+
+/* Novedades */
+.novedades h3 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--gris);
+    margin-left: 3rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.novedades .flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto 65px;
+}
+
+.novedades .card {
+    border: 1px solid var(--gris);
+    margin: 15px auto;
+}
+
+.novedades .card:hover {
+    border: 2px solid var(--blanco);
+}
+
+.novedades .card-body {
+    background-color: var(--oscuro-resaltar);
+}
+
+.novedades .card-body .card-title {
+    color: var(--gris);
+}
+
+.novedades .card a {
+    background-color: var(--morado);
+    color: white;
+}
+
+.novedades .card a:hover {
+    background-color: var(--azul);
 }

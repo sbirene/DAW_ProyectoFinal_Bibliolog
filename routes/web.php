@@ -33,3 +33,4 @@ Auth::routes();
 
 // Proteger rutas si no hay sesión iniciada
 // Route::get('biblioteca')->name('biblioteca')->middleware('auth');
+
