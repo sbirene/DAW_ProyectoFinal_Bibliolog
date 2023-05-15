@@ -232,6 +232,13 @@ body {
     }
 }
 
+/* General */
+h3 {
+    font-size: 1.75rem !important;
+    font-weight: bold;
+    color: var(--gris) !important;
+}
+
 /* Formulario crear cuenta */
 form.crear-cuenta {
     padding-top: 75px;
@@ -434,9 +441,6 @@ form.iniciar-sesion .btn:hover {
 
 /* Novedades */
 .novedades h3 {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: var(--gris);
     margin-left: 3rem !important;
     margin-bottom: 1.5rem !important;
 }
@@ -472,4 +476,62 @@ form.iniciar-sesion .btn:hover {
 
 .novedades .card a:hover {
     background-color: var(--azul);
+}
+
+/* Estilo para las fichas */
+.ficha {
+    padding: 3rem !important;
+}
+
+.ficha .titulo {
+    width: fit-content;
+    margin-left: 3rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.ficha table {
+    background-color: var(--oscuro);
+    color: var(--gris);
+    border-color: var(--gris);
+}
+
+.ficha .table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: var(--oscuro-resaltar);
+    color: var(--gris);
+}
+
+.ficha .row .col {
+    width: 40%;
+}
+
+.ficha table th {
+    width: 175px;
+    font-size: 16px;
+}
+
+.ficha table td {
+    color: var(--blanco);
+    font-size: 16px;
+}
+
+.ficha .table-striped>tbody>tr:nth-of-type(odd)>td {
+    color: var(--blanco);
+}
+
+/* Estilo para tablets */
+@media only screen and (max-width: 1200px) {
+
+    .ficha .titulo {
+        margin: auto 0 1.5rem 0!important;
+        text-align: center;
+    }
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 600px) {
+
+    .ficha .titulo {
+        margin: auto 0 1.5rem 0!important;
+        text-align: center;
+    }
 }

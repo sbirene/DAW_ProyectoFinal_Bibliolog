@@ -9,6 +9,11 @@ class ActorController extends Controller
 {
     //
     public static function obtenerActores() {
-        return $autores = Actor::all();
+        return $actores = Actor::all();
+    }
+
+    public static function obtenerUnActor($id) {
+        $actor = Actor::find($id);
+        return $actor->nombre;
     }
 }

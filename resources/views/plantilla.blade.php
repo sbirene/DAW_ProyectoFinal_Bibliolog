@@ -49,7 +49,7 @@
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item @yield('activo_novedades')">
-                    <a class="nav-link" href="novedades">Novedades</a>
+                    <a class="nav-link" href="/novedades">Novedades</a>
                 </li>
                 <li class="nav-item @yield('activo_pelis')">
                     <a class="nav-link" href="peliculas.html">Películas</a>

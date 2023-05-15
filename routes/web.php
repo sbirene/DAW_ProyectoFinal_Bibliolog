@@ -30,6 +30,13 @@ Route::view("novedades", "novedades");
 // Rutas autentificación
 Auth::routes();
 
+// Rutas para películas
+Route::resource('peliculas', 'PeliculaController');
+Route::get('/peliculas/{id}', 'PeliculaController@show');
+
+// Rutas para series
+Route::resource('series', 'SerieController');
+Route::get('/series/{id}', 'SerieController@show');
 
 // Proteger rutas si no hay sesión iniciada
 // Route::get('biblioteca')->name('biblioteca')->middleware('auth');

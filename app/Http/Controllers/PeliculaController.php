@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Actor;
+use App\Director;
 use App\Pelicula;
+use App\Pelicula_Actor;
 use Illuminate\Http\Request;
 
 class PeliculaController extends Controller
@@ -45,4 +48,21 @@ class PeliculaController extends Controller
 
         return $devolver;
     }
+
+    // Para ver los detalles de una peli
+    public function show($id)
+    {
+        $pelicula = Pelicula::findOrFail($id);
+        // dd($pelicula);
+        return view('pelicula.show', ['pelicula' => $pelicula]);
+    }
+
+    // Obtener director de una peli
+    public static function obtenerDirectorPeli($director) {
+        $dir = Director::find($director, array('nombre'));
+        // dd($dir->nombre);
+        return $dir->nombre;
+    }
+
+
 }

@@ -33,4 +33,13 @@ class SerieController extends Controller
 
         return $devolver;
     }
+
+    // Para ver los detalles de una serie
+    public function show($id)
+    {
+        $serie = Serie::findOrFail($id);
+        // dd($serie);
+        // dd($serie->id_serie);
+        return view('serie.show', ['serie' => $serie], ['id' => $serie->id_serie]);
+    }
 }
