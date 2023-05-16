@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Autor;
 use App\Libro;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,20 @@ class LibroController extends Controller
         }
 
         return $devolver;
+    }
+
+    // Para ver los detalles de una peli
+    public function show($id)
+    {
+        $libro = Libro::findOrFail($id);
+        // dd($libro);
+        return view('libro.show', ['libro' => $libro]);
+    }
+
+    // Obtener autor de un libro
+    public static function obtenerAutorLibro($autor) {
+        $aut = Autor::find($autor, array('nombre'));
+        // dd($aut->nombre);
+        return $aut->nombre;
     }
 }

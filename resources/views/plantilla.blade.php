@@ -10,6 +10,10 @@
     <link rel="stylesheet" type='text/css' media='screen' href="{{asset('css/main.css')}}">
     <link rel="stylesheet" type='text/css' media='screen' href="{{asset('css/app.css')}}">
 
+    <!-- Importar fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" />  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+
     <!-- Importar tipografía -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

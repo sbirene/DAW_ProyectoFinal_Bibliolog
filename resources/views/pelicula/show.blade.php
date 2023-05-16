@@ -28,6 +28,13 @@ BiblioLog - {{$pelicula->titulo}}
         <div class="row justify-content-center align-items-center">
             <div class="col-10 col-md-8 col-lg-3 mb-2 mb-md-4 mb-lg-0">
                 <img src="<?php echo e(asset('images/pelis/' . $pelicula->imagen)) ?>" alt="poster de la película" class="mw-100 border rounded">
+                @guest
+                @else
+                <div class="botones-biblioteca">
+                    <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
+                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a>
+                </div>
+                @endguest
             </div>
             <div class="col-10 col-md-10 col-lg-8 mt-2 mt-md-4 mt-lg-0">
                 <table class="table align-middle table-borderless">

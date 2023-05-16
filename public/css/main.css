@@ -518,6 +518,50 @@ form.iniciar-sesion .btn:hover {
     color: var(--blanco);
 }
 
+.ficha .botones-biblioteca {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ficha .botones-biblioteca a {
+    background-color: var(--morado);
+    color: white;
+    margin: 5px auto;
+}
+
+.ficha .botones-biblioteca-serie {
+    margin-top: 30px;
+}
+
+.ficha .botones-biblioteca-serie a {
+    background-color: var(--morado);
+    color: white;
+    margin: 15px auto;
+    display: block;
+    width: fit-content;
+}
+
+.ficha .botones-biblioteca a:hover {
+    background-color: var(--azul);
+    text-decoration: none;
+}
+
+.ficha .botones-biblioteca a.marcado {
+    background-color: var(--azul);
+    color: white;
+}
+
+.ficha .botones-biblioteca a.marcado:hover {
+    background-color: var(--morado);
+    text-decoration: none;
+}
+
+.ficha .botones-biblioteca .icono {
+    margin-left: 3px;
+}
+
 /* Estilo para tablets */
 @media only screen and (max-width: 1200px) {
 

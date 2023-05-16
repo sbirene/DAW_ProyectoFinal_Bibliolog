@@ -38,6 +38,10 @@ Route::get('/peliculas/{id}', 'PeliculaController@show');
 Route::resource('series', 'SerieController');
 Route::get('/series/{id}', 'SerieController@show');
 
+// Rutas para libros
+Route::resource('libros', 'LibroController');
+Route::get('/libros/{id}', 'LibroController@show');
+
 // Proteger rutas si no hay sesión iniciada
 // Route::get('biblioteca')->name('biblioteca')->middleware('auth');
 
