@@ -64,6 +64,7 @@ BiblioLog - {{$serie->titulo}}
         </div>
 
         <div class="row justify-content-center align-items-center">
+            
             <div class="col-10 col-md-8 col-lg-3 mb-2 mb-md-4 mb-lg-0">
                 @guest
                 @else
@@ -74,28 +75,30 @@ BiblioLog - {{$serie->titulo}}
                 </div>
                 @endguest
             </div>
+
             <div class="col-10 col-md-10 col-lg-8 capitulos">
                 <div class="tab nav nav-tabs">
                     @foreach($temporadas as $temp)
                     <button class="tablinks btn nav-link boton-temporada" onclick="openTab(event, 'tab{{$temp->num_temporada}}')">Temporada {{$temp->num_temporada}}</button>
+
+                    <div id="tab{{$temp->num_temporada}}" class="tabcontent">
+                        <?php $capitulos = CapituloController::obtenerCapituloTemporada($temp->id_temporada); ?>
+                        <ul class="lista-capitulos">
+                            @foreach($capitulos as $cap)
+                            <li>
+                                {{$cap->nombre_cap}}
+                                @guest
+                                @else
+                                <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
+                                @endguest
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endforeach
                 </div>
-
-                <div id="tab{{$temp->num_temporada}}" class="tabcontent">
-                    <?php $capitulos = CapituloController::obtenerCapituloTemporada($temp->id_temporada); ?>
-                    <ul class="lista-capitulos">
-                        @foreach($capitulos as $cap)
-                        <li>
-                            {{$cap->nombre_cap}}
-                            @guest
-                            @else
-                            <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
-                            @endguest
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
             </div>
+
         </div>
     </div>
 
