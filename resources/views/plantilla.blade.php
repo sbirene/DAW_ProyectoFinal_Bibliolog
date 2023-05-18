@@ -28,8 +28,8 @@
         <ul>
             <!-- si no hay una sesión iniciada -->
             @guest
-            <li><a href="register">Crear cuenta</a></li>
-            <li><a href="login">Iniciar Sesión</a></li>
+            <li><a href="/register">Crear cuenta</a></li>
+            <li><a href="/login">Iniciar Sesión</a></li>
             <!-- sí hay una sesión iniciada -->
             @else
             <li>

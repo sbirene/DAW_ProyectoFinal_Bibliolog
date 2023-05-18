@@ -548,6 +548,11 @@ form.iniciar-sesion .btn:hover {
     text-decoration: none;
 }
 
+.ficha .botones-biblioteca-serie a:hover {
+    background-color: var(--azul);
+    text-decoration: none;
+}
+
 .ficha .botones-biblioteca a.marcado {
     background-color: var(--azul);
     color: white;
@@ -562,11 +567,15 @@ form.iniciar-sesion .btn:hover {
     margin-left: 3px;
 }
 
+.ficha .capitulos {
+    margin-top: 55px;
+}
+
 /* Estilo para tablets */
 @media only screen and (max-width: 1200px) {
 
     .ficha .titulo {
-        margin: auto 0 1.5rem 0!important;
+        margin: auto 0 1.5rem 0 !important;
         text-align: center;
     }
 }
@@ -575,7 +584,69 @@ form.iniciar-sesion .btn:hover {
 @media only screen and (max-width: 600px) {
 
     .ficha .titulo {
-        margin: auto 0 1.5rem 0!important;
+        margin: auto 0 1.5rem 0 !important;
         text-align: center;
     }
 }
+
+/* Listado de capítulos */
+.tab {
+    overflow: hidden;
+}
+
+.nav-tabs {
+    border-bottom-color: var(--gris) !important;
+}
+
+.capitulos .boton-temporada {
+    background-color: transparent;
+    color: var(--gris);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.capitulos .boton-temporada:hover {
+    color: var(--blanco);
+    background-color: transparent;
+    border-color: var(--gris) !important;
+    border-bottom: none;
+}
+
+.capitulos .boton-temporada.active {
+    background-color: var(--oscuro-resaltar) !important;
+    border-color: var(--gris) !important;
+    border-bottom: none;
+    box-shadow: none;
+    color: var(--blanco) !important;
+}
+
+.tab button {
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+}
+
+.capitulos .lista-capitulos li {
+    list-style-type: auto !important;
+}
+
+.capitulos .lista-capitulos li .icono {
+    color: var(--azul-claro);
+}
+.capitulos .lista-capitulos li .icono:hover {
+    color: var(--azul);
+}
+
+.capitulos .lista-capitulos li a.marcado .icono {
+    color: var(--azul);
+}
+
+.capitulos .lista-capitulos li a.marcado .icono:hover {
+    color: var(--azul-claro);
+}   
