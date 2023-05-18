@@ -567,10 +567,6 @@ form.iniciar-sesion .btn:hover {
     margin-left: 3px;
 }
 
-.ficha .capitulos {
-    margin-top: 55px;
-}
-
 /* Estilo para tablets */
 @media only screen and (max-width: 1200px) {
 

@@ -14,6 +14,7 @@ $actores = Serie_ActorController::obtenerActoresSerie($id);
 // dd($actores);
 $temporadas = TemporadaController::obtenerTemporadaSerie($serie->id_serie);
 // dd($temporadas[0]->id_temporada);
+$temporadasAgain = TemporadaController::obtenerTemporadaSerie($serie->id_serie);
 
 ?>
 
@@ -63,8 +64,8 @@ BiblioLog - {{$serie->titulo}}
             </div>
         </div>
 
-        <div class="row justify-content-center align-items-center">
-            
+        <div class="row justify-content-center align-items-start mt-4">
+
             <div class="col-10 col-md-8 col-lg-3 mb-2 mb-md-4 mb-lg-0">
                 @guest
                 @else
@@ -80,23 +81,25 @@ BiblioLog - {{$serie->titulo}}
                 <div class="tab nav nav-tabs">
                     @foreach($temporadas as $temp)
                     <button class="tablinks btn nav-link boton-temporada" onclick="openTab(event, 'tab{{$temp->num_temporada}}')">Temporada {{$temp->num_temporada}}</button>
-
-                    <div id="tab{{$temp->num_temporada}}" class="tabcontent">
-                        <?php $capitulos = CapituloController::obtenerCapituloTemporada($temp->id_temporada); ?>
-                        <ul class="lista-capitulos">
-                            @foreach($capitulos as $cap)
-                            <li>
-                                {{$cap->nombre_cap}}
-                                @guest
-                                @else
-                                <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
-                                @endguest
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
                     @endforeach
                 </div>
+
+                @foreach($temporadasAgain as $t)
+                <div id="tab{{$t->num_temporada}}" class="tabcontent">
+                    <?php $capitulos = CapituloController::obtenerCapituloTemporada($t->id_temporada); ?>
+                    <ul class="lista-capitulos">
+                        @foreach($capitulos as $cap)
+                        <li>
+                            {{$cap->nombre_cap}}
+                            @guest
+                            @else
+                            <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
+                            @endguest
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endforeach
             </div>
 
         </div>
