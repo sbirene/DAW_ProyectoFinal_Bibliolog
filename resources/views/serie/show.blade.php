@@ -69,7 +69,7 @@ BiblioLog - {{$serie->titulo}}
             <div class="col-10 col-md-8 col-lg-3 mb-2 mb-md-4 mb-lg-0">
                 @guest
                 @else
-                <div class="botones-biblioteca-serie">
+                <div class="botones-biblioteca">
                     <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
                     <a href="" class="btn-lg">Siguiendo <i class="fa-regular fa-heart icono"></i></a>
                     <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a>
@@ -78,9 +78,9 @@ BiblioLog - {{$serie->titulo}}
             </div>
 
             <div class="col-10 col-md-10 col-lg-8 capitulos">
-                <div class="tab nav nav-tabs">
+                <div class="tab">
                     @foreach($temporadas as $temp)
-                    <button class="tablinks btn nav-link boton-temporada" onclick="openTab(event, 'tab{{$temp->num_temporada}}')">Temporada {{$temp->num_temporada}}</button>
+                    <button class="tablinks btn boton-temporada" onclick="openTab(event, 'tab{{$temp->num_temporada}}')">Temporada {{$temp->num_temporada}}</button>
                     @endforeach
                 </div>
 
@@ -90,7 +90,7 @@ BiblioLog - {{$serie->titulo}}
                     <ul class="lista-capitulos">
                         @foreach($capitulos as $cap)
                         <li>
-                            {{$cap->nombre_cap}}
+                            <p>{{$cap->nombre_cap}}</p>
                             @guest
                             @else
                             <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
@@ -108,25 +108,7 @@ BiblioLog - {{$serie->titulo}}
 </div>
 <!-- fin contenido -->
 
-<script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
+<!-- script js para el listado de capitulos -->
+<script src="{{asset('js/tabSeries.js')}}"></script>
 
-        // Oculta todos los elementos con class="tabcontent"
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        // Elimina la clase "active" de todos los botones
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Muestra el tab actual y agrega la clase "active" al botón que lo abrió
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
 @endsection

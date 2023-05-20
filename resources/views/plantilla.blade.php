@@ -56,13 +56,13 @@
                     <a class="nav-link" href="/novedades">Novedades</a>
                 </li>
                 <li class="nav-item @yield('activo_pelis')">
-                    <a class="nav-link" href="peliculas.html">Películas</a>
+                    <a class="nav-link" href="/peliculas">Películas</a>
                 </li>
                 <li class="nav-item @yield('activo_series')">
-                    <a class="nav-link" href="series.html">Series</a>
+                    <a class="nav-link" href="/series">Series</a>
                 </li>
                 <li class="nav-item @yield('activo_libros')">
-                    <a class="nav-link" href="libros.html">Libros</a>
+                    <a class="nav-link" href="/libros">Libros</a>
                 </li>
                 <li class="nav-item @yield('activo_biblioteca')">
                     <a class="nav-link" href="biblioteca.html">Mi biblioteca</a>
@@ -82,10 +82,10 @@
             <div tabindex="0" class="menu-responsive">
                 <div class="menu-dropdown">
                     <a class="nav-link" href="/">Inicio</a>
-                    <a class="nav-link" href="novedades">Novedades</a>
-                    <a class="nav-link" href="peliculas.html">Películas</a>
-                    <a class="nav-link" href="series.html">Series</a>
-                    <a class="nav-link" href="libros.html">Libros</a>
+                    <a class="nav-link" href="/novedades">Novedades</a>
+                    <a class="nav-link" href="/peliculas">Películas</a>
+                    <a class="nav-link" href="/series">Series</a>
+                    <a class="nav-link" href="/libros">Libros</a>
                     <a class="nav-link" href="biblioteca.html">Mi biblioteca</a>
                     <a class="nav-link" href="noticias.html">Noticias</a>
                     <a class="nav-link" href="sobre-bibliolog.html">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>

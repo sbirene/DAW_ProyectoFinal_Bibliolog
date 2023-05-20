@@ -7,19 +7,48 @@ use App\Director;
 use App\Pelicula;
 use App\Pelicula_Actor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class PeliculaController extends Controller
 {
     //
-    public static function obtenerPelis()
+    public function index()
     {
-        return $pelis = Pelicula::all();
+        $pelis = Pelicula::all();
+        return view("peliculas", ["pelis" => $pelis]);
     }
 
-    public static function obtenerNumeroPelis($num)
+    public function buscar()
+    {
+        // Recibir input del formulario
+        $termino = $_POST["valor_buscar"];
+        // dd($termino);
+
+        if ($termino === "") {
+            $pelis = Pelicula::all();
+            return view("peliculas", ["pelis" => $pelis]);
+        }
+
+        // Buscar las pelis
+        $resultados = DB::table('pelicula')
+            ->where('titulo', 'LIKE', '%' . $termino . '%')
+            ->get();
+        // dd($resultados);
+
+        // Devolver resultados
+        return view("peliculas", ["resultados" => $resultados]);
+    }
+
+    /* public static function obtenerPelis()
+    {
+        return $pelis = Pelicula::all();
+    } */
+
+    /* public static function obtenerNumeroPelis($num)
     {
         return $pelis = Pelicula::paginate($num);
-    }
+    } */
 
     public static function obtenerNovedadesPelis($numPelis, $year)
     {
@@ -58,11 +87,10 @@ class PeliculaController extends Controller
     }
 
     // Obtener director de una peli
-    public static function obtenerDirectorPeli($director) {
+    public static function obtenerDirectorPeli($director)
+    {
         $dir = Director::find($director, array('nombre'));
         // dd($dir->nombre);
         return $dir->nombre;
     }
-
-
 }

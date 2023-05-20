@@ -4,13 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SerieController extends Controller
 {
     //
-    public static function obtenerSeries()
+    public function index()
     {
-        return $autores = Serie::all();
+        $series = Serie::all();
+        return view("series", ["series" => $series]);
+    }
+
+    /* public static function obtenerSeries()
+    {
+        return $series = Serie::all();
+    } */
+
+    public function buscar()
+    {
+        // Recibir input del formulario
+        $termino = $_POST["valor_buscar"];
+        // dd($termino);
+
+        if ($termino === "") {
+            $series = Serie::all();
+            return view("series", ["series" => $series]);
+        }
+
+        // Buscar las series
+        $resultados = DB::table('serie')
+            ->where('titulo', 'LIKE', '%' . $termino . '%')
+            ->get();
+        // dd($resultados);
+
+        // Devolver resultados
+        return view("series", ["resultados" => $resultados]);
     }
 
     public static function obtenerNovedadesSeries($numSeries, $year)

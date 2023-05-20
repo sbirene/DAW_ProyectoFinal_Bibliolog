@@ -33,14 +33,20 @@ Auth::routes();
 // Rutas para películas
 Route::resource('peliculas', 'PeliculaController');
 Route::get('/peliculas/{id}', 'PeliculaController@show');
+// Ruta para buscador películas
+Route::post('/peliculas', 'PeliculaController@buscar')->name('peliculas.buscar');
 
 // Rutas para series
 Route::resource('series', 'SerieController');
 Route::get('/series/{id}', 'SerieController@show');
+// Ruta para buscador series
+Route::post('/series', 'SerieController@buscar')->name('series.buscar');
 
 // Rutas para libros
 Route::resource('libros', 'LibroController');
 Route::get('/libros/{id}', 'LibroController@show');
+// Ruta para buscador libros
+Route::post('/libros', 'LibroController@buscar')->name('libros.buscar');
 
 // Proteger rutas si no hay sesión iniciada
 // Route::get('biblioteca')->name('biblioteca')->middleware('auth');

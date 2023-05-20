@@ -232,9 +232,64 @@ body {
     }
 }
 
+/* Formularios manejo sesión */
+/* Crear cuenta */
+.crear-cuenta {
+    width: 35%;
+    margin: auto;
+}
+
+.crear-cuenta .campos div {
+    margin-bottom: 15px;
+}
+
+/* Estilo para móviles y tablets */
+@media only screen and (max-width: 600px) {
+
+    .crear-cuenta {
+        width: 55%;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    .crear-cuenta {
+        width: 45%;
+    }
+
+}
+
+/* Iniciar sesión */
+.iniciar-sesion {
+    width: 35%;
+    margin: auto;
+}
+
+.iniciar-sesion .campos .pass {
+    margin-top: 15px;
+}
+
+/* Estilo para móviles y tablets */
+@media only screen and (max-width: 600px) {
+
+    .iniciar-sesion {
+        width: 55%;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    .iniciar-sesion {
+        width: 45%;
+    }
+
+}
+
 /* General */
 h3 {
-    font-size: 1.75rem !important;
+    font-size: 1.75rem;
     font-weight: bold;
     color: var(--gris) !important;
 }
@@ -302,6 +357,7 @@ form.iniciar-sesion .btn:hover {
 .contenido {
     background-color: var(--oscuro);
     color: var(--blanco);
+    padding-bottom: 25px;
     min-height: 100vh;
 }
 
@@ -439,43 +495,112 @@ form.iniciar-sesion .btn:hover {
     }
 }
 
-/* Novedades */
-.novedades h3 {
-    margin-left: 3rem !important;
-    margin-bottom: 1.5rem !important;
+/* Buscador */
+form.buscador {
+    float: right;
+    margin-right: 5%;
+    margin-top: 15px;
 }
 
-.novedades .flex {
+form.buscador .form-control {
+    display: inline;
+    width: fit-content;
+    background-color: var(--oscuro-resaltar);
+    color: var(--blanco);
+    border-color: var(--gris);
+}
+
+form.buscador .form-control:focus {
+    border-color: var(--blanco);
+    box-shadow: 0 0 0 0.25rem var(--azul);
+    box-shadow: none;
+}
+
+form.buscador .btn {
+    color: var(--blanco);
+    background-color: var(--morado);
+}
+
+form.buscador .btn:hover {
+    background-color: var(--azul);
+}
+
+/* Estilo para tablets */
+@media only screen and (max-width: 900px) {
+
+    form.buscador {
+        margin-top: 25px;
+
+    }
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 600px) {
+
+    form.buscador {
+        width: 240px;
+        margin: auto;
+        float: none;
+        padding-top: 25px;
+    }
+
+}
+
+/* Listado cards */
+.listado {
+    padding-top: 2.5rem;
+}
+
+.listado h3 {
+    font-size: 1.875rem;
+    margin-left: 4rem !important;
+}
+
+.listado .flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: auto 65px;
 }
 
-.novedades .card {
+.listado .margen {
+    margin: auto 65px;
+}
+
+.listado .elemento {
+    margin-bottom: 30px;
+    max-height: fit-content;
+}
+
+.listado .card {
     border: 1px solid var(--gris);
     margin: 15px auto;
 }
 
-.novedades .card:hover {
+.listado .card:hover {
     border: 2px solid var(--blanco);
 }
 
-.novedades .card-body {
+.listado .card-body {
     background-color: var(--oscuro-resaltar);
 }
 
-.novedades .card-body .card-title {
+.listado .card-body .card-title {
     color: var(--gris);
 }
 
-.novedades .card a {
+.listado .card a {
     background-color: var(--morado);
     color: white;
 }
 
-.novedades .card a:hover {
+.listado .card a:hover {
     background-color: var(--azul);
+}
+
+.listado .pelis,
+.listado .series {
+    margin-bottom: 70px;
 }
 
 /* Estilo para las fichas */
@@ -519,25 +644,12 @@ form.iniciar-sesion .btn:hover {
 }
 
 .ficha .botones-biblioteca {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.ficha .botones-biblioteca a {
-    background-color: var(--morado);
-    color: white;
-    margin: 5px auto;
-}
-
-.ficha .botones-biblioteca-serie {
     margin-top: 30px;
 }
 
-.ficha .botones-biblioteca-serie a {
-    background-color: var(--morado);
-    color: white;
+.ficha .botones-biblioteca a {
+    background-color: var(--oscuro-resaltar);
+    color: var(--gris);
     margin: 15px auto;
     display: block;
     width: fit-content;
@@ -545,21 +657,17 @@ form.iniciar-sesion .btn:hover {
 
 .ficha .botones-biblioteca a:hover {
     background-color: var(--azul);
-    text-decoration: none;
-}
-
-.ficha .botones-biblioteca-serie a:hover {
-    background-color: var(--azul);
+    color: var(--blanco);
     text-decoration: none;
 }
 
 .ficha .botones-biblioteca a.marcado {
-    background-color: var(--azul);
-    color: white;
+    background-color: var(--morado);
+    color: var(--blanco);
 }
 
 .ficha .botones-biblioteca a.marcado:hover {
-    background-color: var(--morado);
+    background-color: var(--azul);
     text-decoration: none;
 }
 
@@ -590,37 +698,32 @@ form.iniciar-sesion .btn:hover {
     overflow: hidden;
 }
 
-.nav-tabs {
-    border-bottom-color: var(--gris) !important;
+.capitulos {
+    margin-top: 65px;
 }
 
 .capitulos .boton-temporada {
-    background-color: transparent;
+    background-color: var(--oscuro-resaltar);
     color: var(--gris);
     font-size: 16px;
     font-weight: bold;
-    border-radius: 10px 10px 0 0;
 }
 
 .capitulos .boton-temporada:hover {
+    background-color: var(--azul);
     color: var(--blanco);
-    background-color: transparent;
-    border-color: var(--gris) !important;
-    border-bottom: none;
 }
 
 .capitulos .boton-temporada.active {
-    background-color: var(--oscuro-resaltar) !important;
-    border-color: var(--gris) !important;
-    border-bottom: none;
     box-shadow: none;
-    color: var(--blanco) !important;
+    background-color: var(--morado);
+    color: var(--blanco);
 }
 
 .tab button {
     cursor: pointer;
     padding: 10px 20px;
-    transition: background-color 0.3s;
+    margin: auto 5px;
 }
 
 .tabcontent {
@@ -630,19 +733,26 @@ form.iniciar-sesion .btn:hover {
 
 .capitulos .lista-capitulos li {
     list-style-type: auto !important;
+    width: fit-content;
 }
 
-.capitulos .lista-capitulos li .icono {
+.capitulos .lista-capitulos li p {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.capitulos .lista-capitulos .icono {
     color: var(--azul-claro);
 }
-.capitulos .lista-capitulos li .icono:hover {
+
+.capitulos .lista-capitulos .icono:hover {
     color: var(--azul);
 }
 
-.capitulos .lista-capitulos li a.marcado .icono {
+.capitulos .lista-capitulos a.marcado .icono {
     color: var(--azul);
 }
 
-.capitulos .lista-capitulos li a.marcado .icono:hover {
+.capitulos .lista-capitulos a.marcado .icono:hover {
     color: var(--azul-claro);
-}   
+}

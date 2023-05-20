@@ -26,14 +26,14 @@ activo
 <!-- Contenido de la página -->
 <div class="contenido">
 
-    <div class="novedades">
+    <div class="listado">
 
-        <div class="pelis container-fluid py-5" id="novP">
-            <h3 class="ms-5 mb-4">Películas</h3>
+        <div class="pelis" id="novP">
+            <h3 class="">Películas</h3>
 
             <div class="flex">
                 @foreach($pelis as $peli)
-                <div class="col">
+                <div class="elemento col">
                     <div class="card text-center h-100">
                         <img src="<?php echo e(asset('images/pelis/' . $peli->imagen)) ?>" class="card-img-top" alt="poster de la película">
                         <div class="card-body">
@@ -46,12 +46,12 @@ activo
             </div>
         </div>
 
-        <div class="series container-fluid py-5" id="novS">
+        <div class="series" id="novS">
             <h3 class="ms-5 mb-4">Series</h3>
 
             <div class="flex">
                 @foreach($series as $serie)
-                <div class="col">
+                <div class="elemento col">
                     <div class="card text-center h-100">
                         <img src="<?php echo e(asset('images/series/' . $serie->imagen)) ?>" class="card-img-top" alt="poster de la serie">
                         <div class="card-body">
@@ -64,12 +64,12 @@ activo
             </div>
         </div>
 
-        <div class="series container-fluid py-5" id="novL">
-            <h3 class="ms-5 mb-4">Libros</h3>
+        <div class="series" id="novL">
+            <h3 class="">Libros</h3>
 
             <div class="flex">
                 @foreach($libros as $libro)
-                <div class="col">
+                <div class="elemento col">
                     <div class="card text-center h-100">
                         <img src="<?php echo e(asset('images/libros/' . $libro->imagen)) ?>" class="card-img-top" alt="portada del libro">
                         <div class="card-body">

@@ -10,15 +10,15 @@ BiblioLog - Iniciar Sesión
 
     <form action="{{ route('login') }}" method="POST" class="iniciar-sesion">
         @csrf
-        <div class="row mb-3">
-            <div class="col">
+        <div class="mb-3 campos">
+            <div class="correo">
                 <label for="email" class="form-label">Correo electrónico</label>
                 <input name="email" value="{{ old('email') }}" required class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"></input>
                 @if ($errors->has('email'))
                 <span class="invalid-feedback"><strong>{{ $errors->first('email') }}</strong></span>
                 @endif
             </div>
-            <div class="col">
+            <div class="pass">
                 <label for="password" class="form-label">Contraseña</label>
                 <input name="password" type="password" required class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"></input>
                 @if ($errors->has('password'))
