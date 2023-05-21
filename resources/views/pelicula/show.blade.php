@@ -15,9 +15,12 @@ $nombreDirector = PeliculaController::obtenerDirectorPeli($pelicula->id_director
 $actores = Pelicula_ActorController::obtenerActoresPeli($pelicula->id_peli);
 // dd($actores);
 
-$pendiente = Usuario_Peli_PendienteController::comprobarPendiente(Auth::user()->id, $pelicula->id_peli);
-// dd($pendiente);
-$vista = Usuario_Peli_VistaController::comprobarVista(Auth::user()->id, $pelicula->id_peli);
+//dd(Auth::user());
+if (Auth::user() != null) {
+    $pendiente = Usuario_Peli_PendienteController::comprobarPendiente(Auth::user()->id, $pelicula->id_peli);
+    // dd($pendiente);
+    $vista = Usuario_Peli_VistaController::comprobarVista(Auth::user()->id, $pelicula->id_peli);
+}
 
 ?>
 
@@ -53,7 +56,7 @@ BiblioLog - {{$pelicula->titulo}}
                         @csrf
                         <input type="hidden" name="peli" value="{{$pelicula->id_peli}}">
                         <input type="hidden" name="user" value="{{ Auth::user()->id }}">
-                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></i></button>
+                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></button>
                     </form>
                     @endif
 

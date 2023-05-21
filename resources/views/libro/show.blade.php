@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 $nombreAutor = LibroController::obtenerAutorLibro($libro->id_autor);
 
-$pendiente = Usuario_Libro_PendienteController::comprobarPendiente(Auth::user()->id, $libro->id_libro);
-$leido = Usuario_Libro_LeidoController::comprobarLeido(Auth::user()->id, $libro->id_libro);
+if (Auth::user() != null) {
+    $pendiente = Usuario_Libro_PendienteController::comprobarPendiente(Auth::user()->id, $libro->id_libro);
+    $leido = Usuario_Libro_LeidoController::comprobarLeido(Auth::user()->id, $libro->id_libro);
+}
 
 ?>
 

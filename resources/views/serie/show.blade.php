@@ -8,13 +8,25 @@ use App\Http\Controllers\CapituloController;
 use App\Http\Controllers\Serie_ActorController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TemporadaController;
+use App\Http\Controllers\Usuario_Cap_VistoController;
+use App\Http\Controllers\Usuario_Serie_PendienteController;
+use App\Http\Controllers\Usuario_Serie_SiguiendoController;
+use App\Http\Controllers\Usuario_Serie_VistaController;
 use App\Serie_Actor;
+use Illuminate\Support\Facades\Auth;
+
 
 $actores = Serie_ActorController::obtenerActoresSerie($id);
 // dd($actores);
 $temporadas = TemporadaController::obtenerTemporadaSerie($serie->id_serie);
 // dd($temporadas[0]->id_temporada);
 $temporadasAgain = TemporadaController::obtenerTemporadaSerie($serie->id_serie);
+
+if (Auth::user() != null) {
+    $pendiente = Usuario_Serie_PendienteController::comprobarPendiente(Auth::user()->id, $serie->id_serie);
+    $vista = Usuario_Serie_VistaController::comprobarVista(Auth::user()->id, $serie->id_serie);
+    $siguiendo = Usuario_Serie_SiguiendoController::comprobarSiguiendo(Auth::user()->id, $serie->id_serie);
+}
 
 ?>
 
@@ -70,9 +82,60 @@ BiblioLog - {{$serie->titulo}}
                 @guest
                 @else
                 <div class="botones-biblioteca">
-                    <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
+                    @if($vista == false)
+                    <form action="{{route('seriesVistas.store', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('seriesVistas.borrar', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></i></button>
+                    </form>
+                    @endif
+
+                    @if($siguiendo == false)
+                    <form action="{{route('seriesSeguidas.store', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Siguiendo <i class="fa-regular fa-heart icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('seriesSeguidas.borrar', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Siguiendo <i class="fa-regular fa-heart icono"></i></button>
+                    </form>
+                    @endif
+
+                    @if($pendiente == false)
+                    <form action="{{route('seriesPendientes.store', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('seriesPendientes.borrar', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                        @csrf
+                        <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @endif
+
+                    <!-- <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
                     <a href="" class="btn-lg">Siguiendo <i class="fa-regular fa-heart icono"></i></a>
-                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a>
+                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a> -->
                 </div>
                 @endguest
             </div>
@@ -93,7 +156,28 @@ BiblioLog - {{$serie->titulo}}
                             <p>{{$cap->nombre_cap}}</p>
                             @guest
                             @else
-                            <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a>
+                            <?php $visto = Usuario_Cap_VistoController::comprobarVisto(Auth::user()->id, $cap->id_cap) ?>
+
+                            @if($visto == false)
+                            <form action="{{route('capVistos.store', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                                @csrf
+                                @method("POST")
+                                <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                                <input type="hidden" name="cap" value="{{$cap->id_cap}}">
+                                <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                                <button type="submit" class=""><i class="fa-solid fa-check fa-xl icono"></i></button>
+                            </form>
+                            <!-- <a href="" class="btn-lg check-capitulo"><i class="fa-solid fa-check icono"></i></a> -->
+                            @else
+                            <form action="{{route('capVistos.borrar', ['id' => $serie->id_serie])}}" method="post" class="w-fit">
+                                @csrf
+                                <input type="hidden" name="serie" value="{{$serie->id_serie}}">
+                                <input type="hidden" name="cap" value="{{$cap->id_cap}}">
+                                <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                                <button type="submit" class="marcado"><i class="fa-solid fa-check fa-xl icono"></i></button>
+                            </form>
+                            <!-- <a href="" class="btn-lg check-capitulo marcado"><i class="fa-solid fa-check icono"></i></a> -->
+                            @endif
                             @endguest
                         </li>
                         @endforeach

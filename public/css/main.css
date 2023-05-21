@@ -737,9 +737,14 @@ form.buscador .btn:hover {
     width: fit-content;
 }
 
-.capitulos .lista-capitulos li p {
+.capitulos .lista-capitulos li p, .capitulos .lista-capitulos li form {
     display: inline-block;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+}
+
+.capitulos .lista-capitulos li button {
+    background-color: transparent;
+    border: none;
 }
 
 .capitulos .lista-capitulos .icono {
@@ -750,10 +755,10 @@ form.buscador .btn:hover {
     color: var(--azul);
 }
 
-.capitulos .lista-capitulos a.marcado .icono {
-    color: var(--azul);
+.capitulos .lista-capitulos li button.marcado .icono {
+    color: var(--morado);
 }
 
-.capitulos .lista-capitulos a.marcado .icono:hover {
-    color: var(--azul-claro);
+.capitulos .lista-capitulos li button.marcado .icono:hover {
+    color: var(--azul);
 }
