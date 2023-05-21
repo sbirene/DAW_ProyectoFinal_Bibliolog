@@ -647,26 +647,27 @@ form.buscador .btn:hover {
     margin-top: 30px;
 }
 
-.ficha .botones-biblioteca a {
+.ficha .botones-biblioteca a, .ficha .botones-biblioteca button {
     background-color: var(--oscuro-resaltar);
     color: var(--gris);
     margin: 15px auto;
     display: block;
     width: fit-content;
+    border: none;
 }
 
-.ficha .botones-biblioteca a:hover {
+.ficha .botones-biblioteca a:hover, .ficha .botones-biblioteca button:hover {
     background-color: var(--azul);
     color: var(--blanco);
     text-decoration: none;
 }
 
-.ficha .botones-biblioteca a.marcado {
+.ficha .botones-biblioteca a.marcado, .ficha .botones-biblioteca button.marcado {
     background-color: var(--morado);
     color: var(--blanco);
 }
 
-.ficha .botones-biblioteca a.marcado:hover {
+.ficha .botones-biblioteca a.marcado:hover, .ficha .botones-biblioteca button.marcado:hover {
     background-color: var(--azul);
     text-decoration: none;
 }

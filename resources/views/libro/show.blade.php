@@ -4,8 +4,14 @@
 // dd($libro->id_peli);
 
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\Usuario_Libro_LeidoController;
+use App\Http\Controllers\Usuario_Libro_PendienteController;
+use Illuminate\Support\Facades\Auth;
 
 $nombreAutor = LibroController::obtenerAutorLibro($libro->id_autor);
+
+$pendiente = Usuario_Libro_PendienteController::comprobarPendiente(Auth::user()->id, $libro->id_libro);
+$leido = Usuario_Libro_LeidoController::comprobarLeido(Auth::user()->id, $libro->id_libro);
 
 ?>
 
@@ -27,8 +33,45 @@ BiblioLog - {{$libro->titulo}}
                 @guest
                 @else
                 <div class="botones-biblioteca">
-                    <a href="" class="btn-lg">Leído <i class="fa-solid fa-check icono"></i></a>
-                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a>
+
+                    @if($leido == false)
+                    <form action="{{route('librosLeidos.store', ['id' => $libro->id_libro])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="libro" value="{{$libro->id_libro}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Leído <i class="fa-solid fa-check icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('librosLeidos.borrar', ['id' => $libro->id_libro])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="libro" value="{{$libro->id_libro}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Leído <i class="fa-solid fa-check icono"></i></button>
+                    </form>
+                    @endif
+
+                    @if($pendiente == false)
+                    <form action="{{route('librosPendientes.store', ['id' => $libro->id_libro])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="libro" value="{{$libro->id_libro}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('librosPendientes.borrar', ['id' => $libro->id_libro])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="libro" value="{{$libro->id_libro}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @endif
+
+                    <!-- <a href="" class="btn-lg">Leído <i class="fa-solid fa-check icono"></i></a>
+                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a> -->
                 </div>
                 @endguest
             </div>

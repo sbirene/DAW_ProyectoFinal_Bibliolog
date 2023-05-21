@@ -5,11 +5,19 @@
 
 use App\Http\Controllers\Pelicula_ActorController;
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\Usuario_Peli_PendienteController;
+use App\Http\Controllers\Usuario_Peli_VistaController;
 use App\Pelicula_Actor;
+use App\Usuario_Peli_Pendiente;
+use Illuminate\Support\Facades\Auth;
 
 $nombreDirector = PeliculaController::obtenerDirectorPeli($pelicula->id_director);
 $actores = Pelicula_ActorController::obtenerActoresPeli($pelicula->id_peli);
 // dd($actores);
+
+$pendiente = Usuario_Peli_PendienteController::comprobarPendiente(Auth::user()->id, $pelicula->id_peli);
+// dd($pendiente);
+$vista = Usuario_Peli_VistaController::comprobarVista(Auth::user()->id, $pelicula->id_peli);
 
 ?>
 
@@ -31,8 +39,43 @@ BiblioLog - {{$pelicula->titulo}}
                 @guest
                 @else
                 <div class="botones-biblioteca">
-                    <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
-                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a>
+
+                    @if($vista == false)
+                    <form action="{{route('pelisVistas.store', ['id' => $pelicula->id_peli])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="peli" value="{{$pelicula->id_peli}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('pelisVistas.borrar', ['id' => $pelicula->id_peli])}}" method="post" class="w-fit">
+                        @csrf
+                        <input type="hidden" name="peli" value="{{$pelicula->id_peli}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></i></button>
+                    </form>
+                    @endif
+
+                    @if($pendiente == false)
+                    <form action="{{route('pelisPendientes.store', ['id' => $pelicula->id_peli])}}" method="post" class="w-fit">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="peli" value="{{$pelicula->id_peli}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @else
+                    <form action="{{route('pelisPendientes.borrar', ['id' => $pelicula->id_peli])}}" method="post" class="w-fit">
+                        @csrf
+                        <input type="hidden" name="peli" value="{{$pelicula->id_peli}}">
+                        <input type="hidden" name="user" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="btn-lg marcado">Pendiente <i class="fa-regular fa-clock icono"></i></button>
+                    </form>
+                    @endif
+
+                    <!-- <a href="" class="btn-lg">Vista <i class="fa-solid fa-check icono"></i></a>
+                    <a href="" class="btn-lg">Pendiente <i class="fa-regular fa-clock icono"></i></a> -->
                 </div>
                 @endguest
             </div>
