@@ -95,7 +95,7 @@ BiblioLog - {{$serie->titulo}}
                         @csrf
                         <input type="hidden" name="serie" value="{{$serie->id_serie}}">
                         <input type="hidden" name="user" value="{{ Auth::user()->id }}">
-                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></i></button>
+                        <button type="submit" class="btn-lg marcado">Vista <i class="fa-solid fa-check icono"></i></button>
                     </form>
                     @endif
 

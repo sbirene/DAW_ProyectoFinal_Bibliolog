@@ -68,4 +68,18 @@ class Usuario_Peli_VistaController extends Controller
             return true;
         }
     }
+
+    public static function pelisVistas($u)
+    {
+        $peliculas = Pelicula::whereIn('id_peli', function ($query) use ($u) {
+            $query->select('id_peli')
+                ->from('usuario_peli_vista')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($peliculas);
+
+        return $peliculas;
+    }
 }

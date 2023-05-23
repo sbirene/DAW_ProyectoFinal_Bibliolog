@@ -63,4 +63,18 @@ class Usuario_Libro_PendienteController extends Controller
             return true;
         }
     }
+
+    public static function librosPendientes($u)
+    {
+        $libros = Libro::whereIn('id_libro', function ($query) use ($u) {
+            $query->select('id_libro')
+                ->from('usuario_libro_pendiente')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($libros);
+
+        return $libros;
+    }
 }

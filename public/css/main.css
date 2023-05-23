@@ -647,7 +647,8 @@ form.buscador .btn:hover {
     margin-top: 30px;
 }
 
-.ficha .botones-biblioteca a, .ficha .botones-biblioteca button {
+.ficha .botones-biblioteca a,
+.ficha .botones-biblioteca button {
     background-color: var(--oscuro-resaltar);
     color: var(--gris);
     margin: 15px auto;
@@ -656,18 +657,21 @@ form.buscador .btn:hover {
     border: none;
 }
 
-.ficha .botones-biblioteca a:hover, .ficha .botones-biblioteca button:hover {
+.ficha .botones-biblioteca a:hover,
+.ficha .botones-biblioteca button:hover {
     background-color: var(--azul);
     color: var(--blanco);
     text-decoration: none;
 }
 
-.ficha .botones-biblioteca a.marcado, .ficha .botones-biblioteca button.marcado {
+.ficha .botones-biblioteca a.marcado,
+.ficha .botones-biblioteca button.marcado {
     background-color: var(--morado);
     color: var(--blanco);
 }
 
-.ficha .botones-biblioteca a.marcado:hover, .ficha .botones-biblioteca button.marcado:hover {
+.ficha .botones-biblioteca a.marcado:hover,
+.ficha .botones-biblioteca button.marcado:hover {
     background-color: var(--azul);
     text-decoration: none;
 }
@@ -737,7 +741,8 @@ form.buscador .btn:hover {
     width: fit-content;
 }
 
-.capitulos .lista-capitulos li p, .capitulos .lista-capitulos li form {
+.capitulos .lista-capitulos li p,
+.capitulos .lista-capitulos li form {
     display: inline-block;
     /* margin-bottom: 5px; */
 }
@@ -761,4 +766,45 @@ form.buscador .btn:hover {
 
 .capitulos .lista-capitulos li button.marcado .icono:hover {
     color: var(--azul);
+}
+
+/* Mi Biblioteca */
+.contenido .listado .aviso {
+    margin-top: 65px;
+    text-align: center;
+}
+
+.contenido .biblioteca {
+    margin-top: 45px;
+    margin-left: 7rem !important;
+}
+
+.biblioteca .tab button {
+    background-color: var(--oscuro-resaltar);
+    color: var(--gris);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.biblioteca .tab button:hover {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+.biblioteca .tab button.active {
+    box-shadow: none;
+    background-color: var(--morado);
+    color: var(--blanco);
+}
+
+.listado .biblioteca .flex {
+    justify-content: flex-start;
+}
+
+.biblioteca .tabcontent .primero {
+    margin-top: 15px;
+}
+
+.biblioteca .tabcontent .despues {
+    margin-top: 35px;
 }

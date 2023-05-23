@@ -8,6 +8,7 @@ use App\Pelicula;
 use App\Pelicula_Actor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class PeliculaController extends Controller

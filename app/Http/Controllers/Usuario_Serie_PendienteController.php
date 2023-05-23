@@ -63,4 +63,18 @@ class Usuario_Serie_PendienteController extends Controller
             return true;
         }
     }
+
+    public static function seriesPendientes($u)
+    {
+        $series = Serie::whereIn('id_serie', function ($query) use ($u) {
+            $query->select('id_serie')
+                ->from('usuario_serie_pendiente')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($series);
+
+        return $series;
+    }
 }

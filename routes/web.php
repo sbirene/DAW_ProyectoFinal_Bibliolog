@@ -24,6 +24,8 @@ Route::get('/', function () {
 Route::view("index", "index");
 // Ruta para novedades
 Route::view("novedades", "novedades");
+// Ruta para mi biblioteca
+Route::view("biblioteca", "biblioteca");
 
 
 // Rutas autentificación

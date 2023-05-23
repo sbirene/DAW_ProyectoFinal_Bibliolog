@@ -65,4 +65,18 @@ class Usuario_Libro_LeidoController extends Controller
             return true;
         }
     }
+
+    public static function librosLeidos($u)
+    {
+        $libros = Libro::whereIn('id_libro', function ($query) use ($u) {
+            $query->select('id_libro')
+                ->from('usuario_libro_leido')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($libros);
+
+        return $libros;
+    }
 }

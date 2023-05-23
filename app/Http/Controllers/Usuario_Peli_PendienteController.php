@@ -7,6 +7,7 @@ use App\User;
 use App\Usuario_Peli_Pendiente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 
 class Usuario_Peli_PendienteController extends Controller
 {
@@ -53,7 +54,7 @@ class Usuario_Peli_PendienteController extends Controller
         // Volver a la vista de película
         $pelicula = Pelicula::findOrFail($id_p);
         // dd($pelicula);
-        return view('pelicula.show', ['pelicula' => $pelicula]);        
+        return view('pelicula.show', ['pelicula' => $pelicula]);
     }
 
     public static function comprobarPendiente($u, $p)
@@ -72,5 +73,19 @@ class Usuario_Peli_PendienteController extends Controller
             // dd("está la peli pendiente");
             return true;
         }
+    }
+
+    public static function pelisPendientes($u)
+    {
+        $peliculas = Pelicula::whereIn('id_peli', function ($query) use ($u) {
+            $query->select('id_peli')
+                ->from('usuario_peli_pendiente')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($peliculas);
+
+        return $peliculas;
     }
 }

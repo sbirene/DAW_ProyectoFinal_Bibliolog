@@ -65,4 +65,18 @@ class Usuario_Serie_VistaController extends Controller
             return true;
         }
     }
+
+    public static function seriesVistas($u)
+    {
+        $series = Serie::whereIn('id_serie', function ($query) use ($u) {
+            $query->select('id_serie')
+                ->from('usuario_serie_vista')
+                ->where('id_usuario', $u);
+        })
+            ->get();
+
+        // dd($series);
+
+        return $series;
+    }
 }
