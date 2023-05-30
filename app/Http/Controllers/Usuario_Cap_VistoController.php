@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Serie;
+use App\Usuario_Cap_Visto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -66,5 +67,19 @@ class Usuario_Cap_VistoController extends Controller
             // dd("está el capítulo visto");
             return true;
         }
+    }
+
+    // Para estadísticas
+    // Contar todos los capítulos vistos
+    public static function totalCapsVistos($u)
+    {
+        $currentYear = date('Y');
+
+        $count = Usuario_Cap_Visto::whereYear('created_at', $currentYear)
+            ->where('id_usuario', $u)
+            ->count();
+        // dd($count);
+
+        return $count;
     }
 }

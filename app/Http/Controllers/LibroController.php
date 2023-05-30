@@ -78,4 +78,22 @@ class LibroController extends Controller
         // dd($aut->nombre);
         return $aut->nombre;
     }
+
+    // Para sacar estadísticas
+    // Número total de páginas leídas
+    public static function totalPagsLeidas($u)
+    {
+        $currentYear = date('Y');
+
+        $totalPags = Libro::whereIn('id_libro', function ($query) use ($u, $currentYear) {
+            $query->select('id_libro')
+                ->from('usuario_libro_leido')
+                ->whereYear('created_at', $currentYear)
+                ->where('id_usuario', $u);
+        })
+            ->sum('num_pag');
+        // dd($totalPags);
+
+        return $totalPags;
+    }
 }

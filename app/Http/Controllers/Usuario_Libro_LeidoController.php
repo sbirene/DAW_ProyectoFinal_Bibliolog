@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Libro;
+use App\Usuario_Libro_Leido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -78,5 +79,19 @@ class Usuario_Libro_LeidoController extends Controller
         // dd($libros);
 
         return $libros;
+    }
+
+    // Para estadísticas
+    // Contar todas los libros leídos
+    public static function totalLibrosLeidos($u)
+    {
+        $currentYear = date('Y');
+
+        $count = Usuario_Libro_Leido::whereYear('created_at', $currentYear)
+            ->where('id_usuario', $u)
+            ->count();
+        // dd($count);
+
+        return $count;
     }
 }

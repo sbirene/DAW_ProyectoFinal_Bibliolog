@@ -546,6 +546,46 @@ form.buscador .btn:hover {
 
 }
 
+/* Filtros por género */
+.generos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.generos button {
+    background-color: var(--morado);
+    color: var(--blanco);
+}
+
+.generos button:hover {
+    background-color: var(--azul);
+}
+
+/* Estilo para tablets */
+@media only screen and (max-width: 900px) {
+    .generos {
+        justify-content: center;
+        gap: 8px;
+        margin: 20px 20px 15px 20px;
+    }
+
+
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 600px) {
+
+    .generos {
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 20px;
+    }
+
+}
+
 /* Listado cards */
 .listado {
     padding-top: 2.5rem;
@@ -731,7 +771,8 @@ form.buscador .btn:hover {
     margin: auto 5px;
 }
 
-.tabcontent {
+.tabcontent,
+.tabcontentDos {
     display: none;
     padding: 20px;
 }
@@ -807,4 +848,48 @@ form.buscador .btn:hover {
 
 .biblioteca .tabcontent .despues {
     margin-top: 35px;
+}
+
+/* Estilo para tablets */
+@media only screen and (max-width: 900px) {
+    .contenido .biblioteca {
+        margin-top: 45px;
+        margin-left: 4rem !important;
+    }
+
+    .listado .flex {
+        margin: auto;
+    }
+
+    .biblioteca .tabcontent .primero, .biblioteca .tabcontent .despues {
+        margin-right: 4rem;
+    }    
+
+}
+
+/* Estilo para móviles */
+@media only screen and (max-width: 600px) {
+
+    .contenido .biblioteca {
+        margin-top: 45px;
+        margin-left: auto !important;
+    }
+
+    .contenido .biblioteca .tab {
+        display: flex;
+        justify-content: center;
+    }
+
+    .biblioteca .tabcontent .primero {
+        margin: 15px;
+    }
+    .biblioteca .tabcontent .despues {
+        margin: 35px 15px;
+    }
+
+    .listado .biblioteca h3 {
+        margin-left: auto !important;
+        text-align: center;
+    }
+
 }

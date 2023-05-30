@@ -51,6 +51,29 @@ class PeliculaController extends Controller
         return $pelis = Pelicula::paginate($num);
     } */
 
+    // Buscar películas por genero
+    public function buscarPorGenero()
+    {
+        // Recibir input del formulario
+        // dd($_POST);
+        $termino = $_POST["valor_buscar"];
+        // dd($termino);
+
+        if ($termino === "") {
+            $pelis = Pelicula::all();
+            return view("peliculas", ["pelis" => $pelis]);
+        }
+
+        // Buscar las pelis
+        $resultados = DB::table('pelicula')
+            ->where('genero', 'LIKE', '%' . $termino . '%')
+            ->get();
+        // dd($resultados);
+
+        // Devolver resultados
+        return view("peliculas", ["resultados" => $resultados]);
+    }
+
     public static function obtenerNovedadesPelis($numPelis, $year)
     {
         $pelis = Pelicula::where('year', '>', $year)->get();
@@ -93,5 +116,24 @@ class PeliculaController extends Controller
         $dir = Director::find($director, array('nombre'));
         // dd($dir->nombre);
         return $dir->nombre;
+    }
+
+
+    // Para sacar estadísticas
+    // Duración de todas las pelis vistas
+    public static function totalMinutosVistos($u)
+    {
+        $currentYear = date('Y');
+
+        $totalMin = Pelicula::whereIn('id_peli', function ($query) use ($u, $currentYear) {
+            $query->select('id_peli')
+                ->from('usuario_peli_vista')
+                ->whereYear('created_at', $currentYear)
+                ->where('id_usuario', $u);
+        })
+            ->sum('duracion');
+        // dd($totalMin);
+
+        return $totalMin;
     }
 }

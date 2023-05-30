@@ -17,3 +17,23 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function openTabDos(evt, tabName) {
+    var j, tabcontentDos, tablinksDos;
+
+    // Oculta todos los elementos con class="tabcontent"
+    tabcontentDos = document.getElementsByClassName("tabcontentDos");
+    for (j = 0; j < tabcontentDos.length; j++) {
+        tabcontentDos[j].style.display = "none";
+    }
+
+    // Elimina la clase "active" de todos los botones
+    tablinksDos = document.getElementsByClassName("tablinksDos");
+    for (j = 0; j < tablinksDos.length; j++) {
+        tablinksDos[j].className = tablinksDos[j].className.replace(" active", "");
+    }
+
+    // Muestra el tab actual y agrega la clase "active" al botón que lo abrió
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}

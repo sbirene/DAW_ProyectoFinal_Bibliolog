@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CapituloController;
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\Usuario_Cap_VistoController;
 use App\Http\Controllers\Usuario_Libro_LeidoController;
 use App\Http\Controllers\Usuario_Libro_PendienteController;
 use App\Http\Controllers\Usuario_Peli_PendienteController;
@@ -22,6 +26,14 @@ if (Auth::user() != null) {
     $seriesS = Usuario_Serie_SiguiendoController::seriesSeguidas($usuario->id);
     $seriesP = Usuario_Serie_PendienteController::seriesPendientes($usuario->id);
     $seriesV = Usuario_Serie_VistaController::seriesVistas($usuario->id);
+
+    // Para estadísticas
+    $totalP = Usuario_Peli_VistaController::totalPelisVistas($usuario->id);
+    $totalMinP = PeliculaController::totalMinutosVistos($usuario->id);
+    $totalCaps = Usuario_Cap_VistoController::totalCapsVistos($usuario->id);
+    $totalMinCaps = CapituloController::totalMinutosVistos($usuario->id);
+    $totalL = Usuario_Libro_LeidoController::totalLibrosLeidos($usuario->id);
+    $totalPags = LibroController::totalPagsLeidas($usuario->id);
 }
 
 
@@ -92,6 +104,14 @@ activo
                         @endforeach
                     </div>
                 </div>
+                <div class="despues">
+                    <div class="tab">
+                        <button class="tablinksDos btn" onclick="openTabDos(event, 'tabEstadsPelis')">Ver mis estadísticas</button>
+                    </div>
+                    <div id="tabEstadsPelis" class="tabcontentDos">
+                        <h5>Has visto un total de {{ $totalP }} películas este año. Lo que hacen un total de {{ $totalMinP }} minutos.</h5>
+                    </div>
+                </div>
             </div>
 
             <div id="tabSeries" class="tabcontent">
@@ -143,6 +163,14 @@ activo
                         @endforeach
                     </div>
                 </div>
+                <div class="despues">
+                    <div class="tab">
+                        <button class="tablinksDos btn" onclick="openTabDos(event, 'tabEstadsCaps')">Ver mis estadísticas</button>
+                    </div>
+                    <div id="tabEstadsCaps" class="tabcontentDos">
+                        <h5>Has visto un total de {{ $totalCaps }} capítulos este año. Lo que hacen un total de {{ $totalMinCaps }} minutos.</h5>
+                    </div>
+                </div>
             </div>
 
             <div id="tabLibros" class="tabcontent">
@@ -176,6 +204,14 @@ activo
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                </div>
+                <div class="despues">
+                    <div class="tab">
+                        <button class="tablinksDos btn" onclick="openTabDos(event, 'tabEstadsLibros')">Ver mis estadísticas</button>
+                    </div>
+                    <div id="tabEstadsLibros" class="tabcontentDos">
+                        <h5>Has leído un total de {{ $totalL }} libros este año. Lo que hacen un total de {{ $totalPags }} páginas leídas.</h5>
                     </div>
                 </div>
             </div>

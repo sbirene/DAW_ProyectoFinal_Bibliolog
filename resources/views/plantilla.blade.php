@@ -20,6 +20,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <!-- fin -->
 
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+
 </head>
 
 <body>
@@ -67,9 +70,9 @@
                 <li class="nav-item @yield('activo_biblioteca')">
                     <a class="nav-link" href="/biblioteca">Mi biblioteca</a>
                 </li>
-                <li class="nav-item @yield('activo_sobre')">
-                    <a class="nav-link" href="sobre-bibliolog.html">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>
-                </li>
+                <!-- <li class="nav-item @yield('activo_sobre')">
+                    <a class="nav-link" href="/sobre-bibliolog">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -87,7 +90,7 @@
                     <a class="nav-link" href="/series">Series</a>
                     <a class="nav-link" href="/libros">Libros</a>
                     <a class="nav-link" href="/biblioteca">Mi biblioteca</a>
-                    <a class="nav-link" href="sobre-bibliolog.html">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a>
+                    <!-- <a class="nav-link" href="/sobre-bibliolog">Sobre <span class="negrita">Biblio</span><span class="estrechita">Log</span></a> -->
                 </div>
             </div>
         </div>

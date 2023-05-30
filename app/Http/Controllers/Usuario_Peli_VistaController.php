@@ -82,4 +82,18 @@ class Usuario_Peli_VistaController extends Controller
 
         return $peliculas;
     }
+
+    // Para estadísticas
+    // Contar todas las pelis vistas
+    public static function totalPelisVistas($u)
+    {
+        $currentYear = date('Y');
+
+        $count = Usuario_Peli_Vista::whereYear('created_at', $currentYear)
+            ->where('id_usuario', $u)
+            ->count();
+        // dd($count);
+
+        return $count;
+    }
 }

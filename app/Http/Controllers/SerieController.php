@@ -41,6 +41,29 @@ class SerieController extends Controller
         return view("series", ["resultados" => $resultados]);
     }
 
+    // Buscar series por genero
+    public function buscarPorGenero()
+    {
+        // Recibir input del formulario
+        // dd($_POST);
+        $termino = $_POST["valor_buscar"];
+        // dd($termino);
+
+        if ($termino === "") {
+            $series = Serie::all();
+            return view("series", ["series" => $series]);
+        }
+
+        // Buscar las series
+        $resultados = DB::table('serie')
+            ->where('genero', 'LIKE', '%' . $termino . '%')
+            ->get();
+        // dd($resultados);
+
+        // Devolver resultados
+        return view("series", ["resultados" => $resultados]);
+    }
+
     public static function obtenerNovedadesSeries($numSeries, $year)
     {
         $series = Serie::where('year', '>', $year)->get();
