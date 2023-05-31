@@ -39,7 +39,7 @@ Route::resource('peliculas', 'PeliculaController');
 Route::get('/peliculas/{id}', 'PeliculaController@show');
 // Ruta para buscador películas
 Route::post('/peliculas', 'PeliculaController@buscar')->name('peliculas.buscar');
-Route::post('/peliculas/resultado', 'PeliculaController@buscarPorGenero')->name('peliculas.buscarPorGenero');
+Route::get('/peliculas/genero/{genero}', 'PeliculaController@buscarPorGenero')->name('peliculas.buscarPorGenero');
 
 
 // Rutas para series
@@ -47,7 +47,7 @@ Route::resource('series', 'SerieController');
 Route::get('/series/{id}', 'SerieController@show');
 // Ruta para buscador series
 Route::post('/series', 'SerieController@buscar')->name('series.buscar');
-Route::post('/series/resultado', 'SerieController@buscarPorGenero')->name('series.buscarPorGenero');
+Route::get('/series/genero/{genero}', 'SerieController@buscarPorGenero')->name('series.buscarPorGenero');
 
 
 // Rutas para libros

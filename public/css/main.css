@@ -555,12 +555,12 @@ form.buscador .btn:hover {
     margin-bottom: 15px;
 }
 
-.generos button {
+.generos a {
     background-color: var(--morado);
-    color: var(--blanco);
+    color: var(--blanco) !important;
 }
 
-.generos button:hover {
+.generos a:hover {
     background-color: var(--azul);
 }
 

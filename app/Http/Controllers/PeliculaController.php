@@ -51,22 +51,18 @@ class PeliculaController extends Controller
         return $pelis = Pelicula::paginate($num);
     } */
 
+    
     // Buscar películas por genero
-    public function buscarPorGenero()
+    public function buscarPorGenero($genero)
     {
-        // Recibir input del formulario
-        // dd($_POST);
-        $termino = $_POST["valor_buscar"];
-        // dd($termino);
-
-        if ($termino === "") {
+        if ($genero === "") {
             $pelis = Pelicula::all();
             return view("peliculas", ["pelis" => $pelis]);
         }
 
         // Buscar las pelis
         $resultados = DB::table('pelicula')
-            ->where('genero', 'LIKE', '%' . $termino . '%')
+            ->where('genero', 'LIKE', '%' . $genero . '%')
             ->get();
         // dd($resultados);
 

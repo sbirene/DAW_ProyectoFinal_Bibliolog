@@ -22,61 +22,17 @@ activo
         <h3 class="">Películas</h3>
 
         <div class="generos">
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="" id="valor" class="form-control">
-                <button type="submit" class="btn">Todas</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="accion" id="valor" class="form-control">
-                <button type="submit" class="btn">Acción</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="aventuras" id="valor" class="form-control">
-                <button type="submit" class="btn">Aventuras</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="ciencia ficcion" id="valor" class="form-control">
-                <button type="submit" class="btn">Ciencia Ficción</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="comedia" id="valor" class="form-control">
-                <button type="submit" class="btn">Comedia</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="crimen" id="valor" class="form-control">
-                <button type="submit" class="btn">Crimen</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="drama" id="valor" class="form-control">
-                <button type="submit" class="btn">Drama</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="musical" id="valor" class="form-control">
-                <button type="submit" class="btn">Musical</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="romance" id="valor" class="form-control">
-                <button type="submit" class="btn">Romance</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="thriller" id="valor" class="form-control">
-                <button type="submit" class="btn">Thriller</button>
-            </form>
-            <form action="{{route('peliculas.buscarPorGenero')}}" class="" method="POST">
-                @csrf
-                <input type="hidden" name="valor_buscar" value="western" id="valor" class="form-control">
-                <button type="submit" class="btn">Western</button>
-            </form>
+            <a href="{{ route('peliculas.index') }}" class="btn">Todas</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'accion') }}" class="btn">Acción</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'aventuras') }}" class="btn">Aventuras</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'ciencia ficcion') }}" class="btn">Ciencia Ficción</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'comedia') }}" class="btn">Comedia</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'crimen') }}" class="btn">Crimen</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'drama') }}" class="btn">Drama</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'musical') }}" class="btn">Musical</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'romance') }}" class="btn">Romance</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'thriller') }}" class="btn">Thriller</a>
+            <a href="{{ route('peliculas.buscarPorGenero', 'western') }}" class="btn">Western</a>
         </div>
 
         <div class="margen">

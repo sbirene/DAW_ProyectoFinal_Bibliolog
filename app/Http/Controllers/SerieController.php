@@ -42,21 +42,16 @@ class SerieController extends Controller
     }
 
     // Buscar series por genero
-    public function buscarPorGenero()
+    public function buscarPorGenero($genero)
     {
-        // Recibir input del formulario
-        // dd($_POST);
-        $termino = $_POST["valor_buscar"];
-        // dd($termino);
-
-        if ($termino === "") {
+        if ($genero === "") {
             $series = Serie::all();
             return view("series", ["series" => $series]);
         }
 
         // Buscar las series
         $resultados = DB::table('serie')
-            ->where('genero', 'LIKE', '%' . $termino . '%')
+            ->where('genero', 'LIKE', '%' . $genero . '%')
             ->get();
         // dd($resultados);
 
