@@ -52,18 +52,18 @@ class Usuario_Libro_LeidoController extends Controller
     public static function comprobarLeido($u, $l)
     {
         $resultado = DB::table('usuario_libro_leido')
-            ->select('id_usuario')
-            ->where('id_libro', '=', $l)
-            ->get();
+                ->where('id_libro', $l)
+                ->where('id_usuario', $u)
+                ->value('id_usuario');
 
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está libro leído");
-            return false;
-        } else {
+        if ($resultado == $u) {
             // dd("está el libro leído");
             return true;
+        } else {
+            // dd("no está libro leído");
+            return false;
         }
     }
 

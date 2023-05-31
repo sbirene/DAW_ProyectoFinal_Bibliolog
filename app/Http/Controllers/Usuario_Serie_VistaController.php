@@ -51,18 +51,18 @@ class Usuario_Serie_VistaController extends Controller
     public static function comprobarVista($u, $s)
     {
         $resultado = DB::table('usuario_serie_vista')
-            ->select('id_usuario')
-            ->where('id_serie', '=', $s)
-            ->get();
+            ->where('id_serie', $s)
+            ->where('id_usuario', $u)
+            ->value('id_usuario');
 
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está la serie vista");
-            return false;
-        } else {
+        if ($resultado == $u) {
             // dd("está la serie vista");
             return true;
+        } else {
+            // dd("no está la serie vista");
+            return false;
         }
     }
 

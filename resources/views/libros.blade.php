@@ -34,7 +34,7 @@ activo
                         <img src="<?php echo e(asset('images/libros/' . $libro->imagen)) ?>" class="card-img-top" alt="poster de la película">
                         <div class="card-body">
                             <h5 class="card-title mb-3">{{$libro->titulo}}</h5>
-                            <a href="libros/{{$libro->id_libro}}" class="btn">Saber más</a>
+                            <a href="/libros/{{$libro->id_libro}}" class="btn">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ activo
                         <img src="<?php echo e(asset('images/libros/' . $libro->imagen)) ?>" class="card-img-top" alt="poster de la película">
                         <div class="card-body">
                             <h5 class="card-title mb-3">{{$libro->titulo}}</h5>
-                            <a href="libros/{{$libro->id_libro}}" class="btn">Saber más</a>
+                            <a href="/libros/{{$libro->id_libro}}" class="btn">Saber más</a>
                         </div>
                     </div>
                 </div>

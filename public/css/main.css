@@ -424,6 +424,17 @@ form.iniciar-sesion .btn:hover {
     color: var(--morado);
 }
 
+.titular a {
+    background-color: var(--morado);
+    color: var(--blanco);
+    margin-top: 15px;
+}
+
+.titular a:hover {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
 
 /* Posibilidades */
 .posibilidades {
@@ -494,6 +505,7 @@ form.iniciar-sesion .btn:hover {
         padding: 55px 10px;
     }
 }
+
 
 /* Buscador */
 form.buscador {
@@ -815,6 +827,17 @@ form.buscador .btn:hover {
     text-align: center;
 }
 
+.contenido .listado .aviso a {
+    background-color: var(--morado);
+    color: var(--blanco);
+    margin-top: 15px;
+}
+
+.contenido .listado .aviso a:hover {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
 .contenido .biblioteca {
     margin-top: 45px;
     margin-left: 7rem !important;
@@ -852,6 +875,7 @@ form.buscador .btn:hover {
 
 /* Estilo para tablets */
 @media only screen and (max-width: 900px) {
+
     .contenido .biblioteca {
         margin-top: 45px;
         margin-left: 4rem !important;
@@ -861,14 +885,20 @@ form.buscador .btn:hover {
         margin: auto;
     }
 
-    .biblioteca .tabcontent .primero, .biblioteca .tabcontent .despues {
+    .biblioteca .tabcontent .primero,
+    .biblioteca .tabcontent .despues {
         margin-right: 4rem;
-    }    
+    }
 
 }
 
 /* Estilo para móviles */
 @media only screen and (max-width: 600px) {
+
+    .contenido .aviso {
+        margin-top: 0;
+        padding: 0px 10px;
+    }
 
     .contenido .biblioteca {
         margin-top: 45px;
@@ -883,6 +913,7 @@ form.buscador .btn:hover {
     .biblioteca .tabcontent .primero {
         margin: 15px;
     }
+
     .biblioteca .tabcontent .despues {
         margin: 35px 15px;
     }

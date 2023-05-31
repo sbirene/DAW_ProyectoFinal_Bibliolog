@@ -40,6 +40,8 @@ activo
 
     <div class="titular">
         <h4 class="titulo">¡Empieza ya!</h4>
+        <h5>Hazte una cuenta y no te pierdas nada</h5>
+        <a href="/novedades" class="btn btn-lg">Ver las novedades</a>
     </div>
 
 </div>

@@ -49,18 +49,18 @@ class Usuario_Libro_PendienteController extends Controller
     public static function comprobarPendiente($u, $l)
     {
         $resultado = DB::table('usuario_libro_pendiente')
-            ->select('id_usuario')
-            ->where('id_libro', '=', $l)
-            ->get();
+                ->where('id_libro', $l)
+                ->where('id_usuario', $u)
+                ->value('id_usuario');
 
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está libro pendiente");
-            return false;
-        } else {
-            // dd("está el libro pendiente");
+        if ($resultado == $u) {
+            // dd("está el libro leído");
             return true;
+        } else {
+            // dd("no está libro leído");
+            return false;
         }
     }
 

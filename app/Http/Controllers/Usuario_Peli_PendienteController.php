@@ -60,18 +60,18 @@ class Usuario_Peli_PendienteController extends Controller
     public static function comprobarPendiente($u, $p)
     {
         $resultado = DB::table('usuario_peli_pendiente')
-            ->select('id_usuario')
-            ->where('id_peli', '=', $p)
-            ->get();
+            ->where('id_peli', $p)
+            ->where('id_usuario', $u)
+            ->value('id_usuario');
 
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está la peli pendiente");
-            return false;
-        } else {
+        if ($resultado == $u) {
             // dd("está la peli pendiente");
             return true;
+        } else {
+            // dd("no está la peli pendiente");
+            return false;
         }
     }
 

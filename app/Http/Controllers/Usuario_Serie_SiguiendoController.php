@@ -49,18 +49,18 @@ class Usuario_Serie_SiguiendoController extends Controller
     public static function comprobarSiguiendo($u, $s)
     {
         $resultado = DB::table('usuario_serie_siguiendo')
-            ->select('id_usuario')
-            ->where('id_serie', '=', $s)
-            ->get();
+            ->where('id_serie', $s)
+            ->where('id_usuario', $u)
+            ->value('id_usuario');
 
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está la serie siguiendo");
-            return false;
-        } else {
-            // dd("está la serie siguiendo");
+        if ($resultado == $u) {
+            // dd("está la peli siguiendo");
             return true;
+        } else {
+            // dd("no está la peli siguiendo");
+            return false;
         }
     }
 

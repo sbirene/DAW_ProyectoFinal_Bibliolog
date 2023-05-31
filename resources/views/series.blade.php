@@ -49,7 +49,7 @@ activo
                         <img src="<?php echo e(asset('images/series/' . $serie->imagen)) ?>" class="card-img-top" alt="poster de la serie">
                         <div class="card-body">
                             <h5 class="card-title mb-3">{{$serie->titulo}}</h5>
-                            <a href="series/{{$serie->id_serie}}" class="btn">Saber más</a>
+                            <a href="/series/{{$serie->id_serie}}" class="btn">Saber más</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ activo
                         <img src="<?php echo e(asset('images/series/' . $serie->imagen)) ?>" class="card-img-top" alt="poster de la serie">
                         <div class="card-body">
                             <h5 class="card-title mb-3">{{$serie->titulo}}</h5>
-                            <a href="series/{{$serie->id_serie}}" class="btn">Saber más</a>
+                            <a href="/series/{{$serie->id_serie}}" class="btn">Saber más</a>
                         </div>
                     </div>
                 </div>

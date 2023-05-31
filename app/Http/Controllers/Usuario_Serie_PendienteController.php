@@ -53,14 +53,19 @@ class Usuario_Serie_PendienteController extends Controller
             ->where('id_serie', '=', $s)
             ->get();
 
+        $resultado = DB::table('usuario_serie_pendiente')
+            ->where('id_serie', $s)
+            ->where('id_usuario', $u)
+            ->value('id_usuario');
+
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está la serie pendiente");
-            return false;
-        } else {
+        if ($resultado == $u) {
             // dd("está la serie pendiente");
             return true;
+        } else {
+            // dd("no está la serie pendiente");
+            return false;
         }
     }
 

@@ -58,14 +58,19 @@ class Usuario_Cap_VistoController extends Controller
             ->where('id_cap', '=', $c)
             ->get();
 
+        $resultado = DB::table('usuario_cap_visto')
+            ->where('id_cap', $c)
+            ->where('id_usuario', $u)
+            ->value('id_usuario');
+
         // dd($resultado);
 
-        if (empty($resultado[0])) {
-            // dd("no está el capítulo visto");
-            return false;
-        } else {
-            // dd("está el capítulo visto");
+        if ($resultado == $u) {
+            // dd("está el cap visto");
             return true;
+        } else {
+            // dd("no está el cap visto");
+            return false;
         }
     }
 
