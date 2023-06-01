@@ -67,12 +67,12 @@ activo
         <div class="biblioteca">
 
             <div class="tab">
-                <button class="tablinks btn" onclick="openTab(event, 'tabPelis')">Películas</button>
+                <button class="tablinks btn active" onclick="openTab(event, 'tabPelis')">Películas</button>
                 <button class="tablinks btn" onclick="openTab(event, 'tabSeries')">Series</button>
                 <button class="tablinks btn" onclick="openTab(event, 'tabLibros')">Libros</button>
             </div>
 
-            <div id="tabPelis" class="tabcontent">
+            <div id="tabPelis" class="tabcontent abierto">
                 <div class="primero">
                     <h3 class="">Pendientes <i class="fa-regular fa-clock icono"></i></h3>
                     <div class="flex">
